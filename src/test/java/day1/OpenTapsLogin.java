@@ -2,12 +2,15 @@ package day1;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebDriver.Options;
+import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import day2.Holidays;
 
 public class OpenTapsLogin {
 
 	public static void main(String[] args) {
-		
 		
 		//http://demo1.opentaps.org/opentaps/control/main
 		

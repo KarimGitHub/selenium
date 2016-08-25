@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -12,29 +11,34 @@ public class SelectClass {
 
 	public static void main(String[] args) {
 
-		System.setProperty("webdriver.chrome.driver",	"./drivers/chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver",	"./drivers/chromedriver.exe");
 		
-		ChromeDriver driver = new ChromeDriver();
+		FirefoxDriver driver = new FirefoxDriver();
 
 		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MICROSECONDS);
 
 		driver.manage().window().maximize();
 
 		driver.get("https://www.irctc.co.in/eticketing/userSignUp.jsf");
+		
+		WebElement selectElement = driver.findElementById("userRegistrationForm:securityQ");
 
-		Select dropDown = new Select(driver.findElementById("userRegistrationForm:securityQ"));
+		Select dropDown = new Select(selectElement);
 
 		List<WebElement> secQuestions = dropDown.getOptions();
-
+		System.out.println(" Print All Questions");
 		for (WebElement webElement : secQuestions) {
-			System.out.println(" Print All Questions");
+		
 			System.out.println(webElement.getText());
 
 		}
+		
 		List<WebElement> selectedOptions = dropDown.getAllSelectedOptions();
 		
+		System.out.println("Selected Options");
+		
 		for (WebElement webElement : selectedOptions) {
-			System.out.println("Selected Options");
+			
 			System.out.println(webElement.getText());
 		}
 		
@@ -47,7 +51,7 @@ public class SelectClass {
 		
 		
 		System.out.println(" Select Question by value");
-		dropDown.selectByValue("5");
+		dropDown.selectByValue("6");
 
 	}
 
