@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
@@ -21,11 +22,11 @@ public class DevopsRunner {
 		
 		RemoteWebDriver driver;
 		
-		System.setProperty("webdriver.chrome.driver", "D:/Workspace/Selenium_Online/learnselenium/drivers/chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver", "D:/Workspace/Selenium_Online/learnselenium/drivers/chromedriver.exe");
 
-		driver = new ChromeDriver();
+//		driver = new ChromeDriver();
 
-//		FirefoxDriver driver = new FirefoxDriver();
+		  driver = new FirefoxDriver();
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
