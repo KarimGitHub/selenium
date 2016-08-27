@@ -1,24 +1,59 @@
 package day6;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Test;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class LearnActionsClasses {
 
-	// @Ignore
-	// @Test
+	RemoteWebDriver driver = null;
+	int i = 0;
+
+	@BeforeMethod
+	public void beforMethod() {
+
+		System.out.println(" Test Cases are started from git");
+	}
+
+	@AfterMethod
+	public void getSnapShot() throws IOException {
+
+		File src = driver.getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(src, new File("./snapshots/devops_" + i + ".jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			i++;
+		}
+		
+		driver.close();
+
+	}
+
+	@Test
+
 	public void dragAndDrop() {
 
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+	/*	System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 
-		ChromeDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();*/
+		
+		driver = new FirefoxDriver();
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -40,12 +75,15 @@ public class LearnActionsClasses {
 
 	}
 
-	// @Test
+	@Test
 	public void dragByOffset() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		/*System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 
-		ChromeDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();*/
+		
+		driver = new FirefoxDriver();
+
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -63,14 +101,14 @@ public class LearnActionsClasses {
 
 	}
 
-	// @Test
+	@Test
 
 	public void resizeWelement() throws InterruptedException {
 
 		// System.setProperty("webdriver.chrome.driver",
 		// "./drivers/chromedriver.exe");
 
-		FirefoxDriver driver = new FirefoxDriver();
+		driver = new FirefoxDriver();
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -81,18 +119,19 @@ public class LearnActionsClasses {
 		driver.switchTo().frame(driver.findElementByXPath("//iframe[@class='demo-frame']"));
 
 		WebElement resizeableElement = driver.findElementByXPath("//div[@id='resizable']/div[3]");
+		// WebElement resizeableElement = driver.findElementById("draggable");
 
 		Actions action = new Actions(driver);
 
-		action.clickAndHold(resizeableElement).moveByOffset(100, 100).release().build().perform();
+		action.clickAndHold(resizeableElement).moveByOffset(500, 500).release().build().perform();
 
 	}
 
-	// @Test
+	@Test
 
 	public void contextClick() {
 
-		FirefoxDriver driver = new FirefoxDriver();
+		driver = new FirefoxDriver();
 
 		driver.manage().window().maximize();
 
@@ -109,11 +148,11 @@ public class LearnActionsClasses {
 
 	}
 
-//	@Test
+	@Test
 
 	public void pageScroll() {
 
-		FirefoxDriver driver = new FirefoxDriver();
+		driver = new FirefoxDriver();
 
 		driver.manage().window().maximize();
 
@@ -124,60 +163,49 @@ public class LearnActionsClasses {
 		jse.executeScript("window.scrollBy(0,9000)", "");
 
 	}
-	
-	
-	
-	
-//	@Test
+
+	@Test
 
 	public void selectable() {
 
-		FirefoxDriver driver = new FirefoxDriver();
+		driver = new FirefoxDriver();
 
 		driver.manage().window().maximize();
 
 		driver.get("https://jqueryui.com/selectable/");
-		
+
 		driver.switchTo().frame(driver.findElementByXPath("//iframe[@class='demo-frame']"));
 
 		WebElement srcItem = driver.findElementByXPath("//ol[@id='selectable']/li[1]");
-		
+
 		WebElement dstItem = driver.findElementByXPath("//ol[@id='selectable']/li[6]");
-		
+
 		Actions action = new Actions(driver);
-		
-		action.dragAndDrop(srcItem, dstItem).release(). build().perform();
-		
+
+		action.dragAndDrop(srcItem, dstItem).release().build().perform();
 
 	}
-	
-	
+
 	@Test
 
 	public void sortable() {
 
-		FirefoxDriver driver = new FirefoxDriver();
+		driver = new FirefoxDriver();
 
 		driver.manage().window().maximize();
 
 		driver.get("https://jqueryui.com/sortable/");
-		
+
 		driver.switchTo().frame(driver.findElementByXPath("//iframe[@class='demo-frame']"));
 
 		WebElement srcItem = driver.findElementByXPath("//ul[@id='sortable']/li[1]");
-		
+
 		WebElement dstItem = driver.findElementByXPath("//ul[@id='sortable']/li[6]");
-		
+
 		Actions action = new Actions(driver);
-		
+
 		action.dragAndDrop(srcItem, dstItem).build().perform();
-		
 
 	}
-	
-	
-	
-	
-	
-	
+
 }
