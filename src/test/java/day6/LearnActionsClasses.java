@@ -25,7 +25,7 @@ public class LearnActionsClasses {
 	@BeforeMethod
 	public void beforMethod() {
 
-		System.out.println(" Test Cases are started from git");
+		System.out.println(" Test Cases are started from git 123");
 	}
 
 	@AfterMethod
