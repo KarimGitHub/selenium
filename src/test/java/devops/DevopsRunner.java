@@ -21,7 +21,7 @@ public class DevopsRunner {
 		
 		RemoteWebDriver driver;
 		
-		System.setProperty("webdriver.chrome.driver", "https://github.com/karimtestleaf/learnselenium/tree/master/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:/Workspace/Selenium_Online/learnselenium/drivers/chromedriver.exe");
 
 		driver = new ChromeDriver();
 
