@@ -32,9 +32,9 @@ public class WindowsScript {
 
 		Thread.sleep(2000);
 
-		driver.findElementByXPath("//*[@class='ib-img-default']").click();
+		//driver.findElementByXPath("//*[@class='ib-img-default']").click();
 
-		Thread.sleep(2000);
+	//	Thread.sleep(2000);
 
 		driver.findElementByXPath("//button[text()='New Browser Window']").click();
 
@@ -52,7 +52,7 @@ public class WindowsScript {
 
 		// now the control not in the parent window , it now in child window
 
-		driver.findElementByXPath("//*[@class='ib-img-default']").click();
+	//	driver.findElementByXPath("//*[@class='ib-img-default']").click();
 
 		driver.manage().window().maximize();
 

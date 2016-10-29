@@ -7,7 +7,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LearnTestNG {
@@ -32,17 +31,17 @@ public class LearnTestNG {
 	}
 
 	@Test
-	@Parameters({ "myName", "age" })
+//	@Parameters({ "myName", "age" })
 
-	public void cookAndDeliver(String name, String age) {
+	public void cookAndDeliver() {
 
-		System.out.println("cookAndDeliver - " + name + age);
+		System.out.println("cookAndDeliver - 1 ");
 	}
 
 	@Test
 	public void cookAndDeliver1() {
 
-		System.out.println("cookAndDeliver");
+		System.out.println("cookAndDeliver - 2");
 	}
 
 	@AfterMethod

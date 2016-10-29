@@ -4,13 +4,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class LearnWindowHandles {
 
 	@Test
-	public void windowHandles() {
+	public void windowHandles() throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 
@@ -23,6 +22,9 @@ public class LearnWindowHandles {
 		driver.get("https://legacy.crystalcruises.com/login.aspx");
 
 		Actions action = new Actions(driver);
+		
+		Thread.sleep(5000);
+		
 		action.moveToElement(driver.findElementByTagName("ALREADY BOOKED")).click().build().perform();
 
 		driver.findElementByTagName("Guest Check-in").click();

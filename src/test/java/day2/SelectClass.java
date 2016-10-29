@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class SelectClass {
@@ -13,7 +15,7 @@ public class SelectClass {
 
 		//System.setProperty("webdriver.chrome.driver",	"./drivers/chromedriver.exe");
 		
-		FirefoxDriver driver = new FirefoxDriver();
+		InternetExplorerDriver driver = new InternetExplorerDriver();
 
 		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MICROSECONDS);
 

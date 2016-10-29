@@ -13,11 +13,11 @@
 			<version>2.53.0</version>
 		</dependency>
 		<!-- Junit related jar , we use Test NG also -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-		</dependency>
+		</dependency> -->
 		<!-- Excel sheet read and write supported jar -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -36,9 +36,14 @@
 			<version>2.40.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
-
-
+	
 	<build>
 		<!-- To define the plugin version in your parent POM -->
 		<pluginManagement>

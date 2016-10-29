@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class LearnFrames {
@@ -12,9 +13,11 @@ public class LearnFrames {
 
 		int frameCount = 0;
 
-		System.setProperty("webdriver.ie.driver", "./drivers/IEDriverServer.exe");
+	//	System.setProperty("webdriver.ie.driver", "./drivers/IEDriverServer.exe");
 
-		InternetExplorerDriver driver = new InternetExplorerDriver();
+	//	InternetExplorerDriver driver = new InternetExplorerDriver();
+		
+		FirefoxDriver driver = new FirefoxDriver();
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
